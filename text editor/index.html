@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Editor</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+         @media print {
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    .container {
+        display: none; /* Hide the main container */
+    }
+    #text-input-container {
+        display: block !important; /* Ensure the text input container is visible */
+        position: static !important; /* Remove any positioning */
+        width: auto !important; /* Allow the text area to expand */
+        height: auto !important; /* Allow the text area to expand */
+        margin: 0 !important; /* Remove margins */
+        padding: 0 !important; /* Remove padding */
+        border: none !important; /* Remove border */
+        overflow: visible !important; /* Allow overflow */
+    }
+    #text-input {
+        width: 100%; /* Ensure full width */
+        height: 100%; /* Ensure full height */
+        min-height: 100%; /* Ensure minimum height */
+        box-sizing: border-box; /* Ensure proper box sizing */
+        border: none; /* Remove any border */
+        outline: none; /* Remove outline */
+        font-size: 16px; /* Adjust font size */
+        line-height: 1.5; /* Adjust line height */
+        color: #000; /* Ensure text color */
+        background: #fff; /* Ensure background color */
+        padding: 20px; /* Add padding */
+    }
+}
+@media print {
+            @page {
+                size: A4;
+                margin: 20mm;
+            }
+            body * {
+                visibility: hidden;
+            }
+            .print-area, .print-area * {
+                visibility: visible;
+            }
+            .print-area {
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="options">
+            <!-- Text format -->
+            <button id="bold" class="option-button format">
+                <i class="fa-solid fa-bold"></i>
+            </button>
+            <button id="italic" class="option-button format">
+                <i class="fa-solid fa-italic"></i>
+            </button>
+            <button id="underline" class="option-button format">
+                <i class="fa-solid fa-underline"></i>
+            </button>
+            <button id="strikethrough" class="option-button format">
+                <i class="fa-solid fa-strikethrough"></i>
+            </button>
+            
+            <button id="superscript" class="option-button script">
+                <i class="fa-solid fa-superscript"></i>
+            </button>
+            <button id="subscript" class="option-button script">
+                <i class="fa-solid fa-subscript"></i>
+            </button>
+
+            <!-- List -->
+            <button id="insertOrderedList" class="option-button">
+                <i class="fa-solid fa-list-ol"></i>
+            </button>
+            <button id="insertUnorderedList" class="option-button">
+                <i class="fa-solid fa-list"></i>
+            </button>
+
+            <!-- undo / Redo  -->
+            <button id="undo" class="option-button">
+                <i class="fa-solid fa-rotate-left"></i>
+            </button>
+            <button id="redo" class="option-button">
+                <i class="fa-solid fa-rotate-right"></i>
+            </button>
+
+            <!-- Link -->
+            <button id="createLink" class="adv-option-button">
+                <i class="fa-solid fa-link"></i>
+            </button>
+            <button id="unlink" class="adv-option-button">
+                <i class="fa-solid fa-unlink"></i>
+            </button>
+
+            <!-- Alignment -->
+            <button id="justifyLeft" class="option-button align">
+                <i class="fa-solid fa-align-left"></i>
+            </button>
+            <button id="justifyCenter" class="option-button align">
+                <i class="fa-solid fa-align-center"></i>
+            </button>
+            <button id="justifyRight" class="option-button align">
+                <i class="fa-solid fa-align-right"></i>
+            </button>
+            <button id="justifyFull" class="option-button align">
+                <i class="fa-solid fa-align-justify"></i>
+            </button>
+
+            <button id="indent" class="option-button spacing">
+                <i class="fa-solid fa-indent"></i>
+            </button>
+            <button id="outdent" class="option-button spacing">
+                <i class="fa-solid fa-outdent"></i>
+            </button>
+
+            <!-- Headings -->
+            <select name="" id="formatBlock" class="adv-option-button">
+                <option value="H1">H1</option>
+                <option value="H2">H2</option>
+                <option value="H3">H3</option>
+                <option value="H4">H4</option>
+                <option value="H5">H5</option>
+                <option value="H6">H6</option>
+            </select>
+
+            <!-- Fonts -->
+            <select name="" id="fontName" class="adv-option-button"></select>
+            <select name="" id="fontSize" class="adv-option-button"></select>
+
+            <!-- color -->
+            <div class="input-wrapper">
+                <input type="color" id="foreColor" class="adv-option-button">
+                <label for="foreColor">Font Color</label>
+            </div>
+            <div class="input-wrapper">
+                <input type="color" id="backColor" class="adv-option-button">
+                <label for="backColor">High light Color</label>
+            </div>
+
+            <!-- Print button -->
+            <button id="print" class="option-button">
+                <i class="fa-solid fa-print"></i>
+            </button>
+        </div>
+
+        <div id="text-input-container">
+            <div id="text-input" contenteditable="true"></div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Dark background color */
+    overflow: hidden;
+}
+
+.banner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dotsCanvas {
+    background-color: #000000; /* Dark background color for canvas */
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for canvas */
+}
+
+/* Styles for dots animation (optional) */
+@keyframes moveDots {
+    from {
+        transform: translate(0, 0);
+    }
+    to {
+        transform: translate(2px, -2px);
+    }
+}
+
+
+.banner {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#dotsCanvas {
+    background-color: #000000; /* Dark background color for canvas */
+    display: block;
+    margin: auto;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Box shadow for canvas */
+}
